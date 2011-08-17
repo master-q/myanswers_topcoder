@@ -3,6 +3,9 @@
 #include <algorithm>
 using namespace std;
 
+// MagicalGirlLevelOneDivTwo
+// http://community.topcoder.com/stat?c=problem_statement&pm=11475
+
 double MagicalGirlLevelOneDivTwo::theMinDistance(int d, int x, int y) {
 	if (x <= d && x >= -d && y <= d && y >= -d) {
 		return 0;
