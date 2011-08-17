@@ -2,7 +2,7 @@ GTEST_DIR = /usr/src/gtest
 USER_DIR = ./
 CPPFLAGS += -I$(GTEST_DIR)/include
 CXXFLAGS += -g -Wall -Wextra
-TESTS = answer_unittest
+TESTS = unittest
 GTEST_HEADERS = /usr/include/gtest/*.h /usr/include/gtest/internal/*.h
 
 all: $(TESTS)
@@ -17,11 +17,11 @@ test: $(TESTS)
 answer.o: $(USER_DIR)/answer.cc $(USER_DIR)/answer.h $(GTEST_HEADERS)
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/answer.cc
 
-answer_unittest.o: $(USER_DIR)/answer_unittest.cc \
+unittest.o: $(USER_DIR)/unittest.cc \
 		   $(USER_DIR)/answer.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/answer_unittest.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/unittest.cc
 
-answer_unittest: answer.o answer_unittest.o gtest_main.a
+unittest: answer.o unittest.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
 ## gtest code
